@@ -6,10 +6,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     fileName: "",
+    fontSize: 10,
+    ifTitleMenuShow: false,
+    ifSettingShow: false,
   },
   mutations: {
     SET_FILENAME(state, fileName) {
       state.fileName = fileName;
+    },
+    TITLE_MENU_SHOW(state) {
+      state.ifTitleMenuShow = !state.ifTitleMenuShow;
+    },
+    SEETING_FONT_SHOW(state, boolean) {
+      state.ifSettingShow = boolean;
     },
   },
   actions: {

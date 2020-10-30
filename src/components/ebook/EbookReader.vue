@@ -12,10 +12,10 @@
 
 <script>
 import Epub from "epubjs";
-//import { locationOf } from "epubjs/types/utils/core";
 
 export default {
   name: "vueName",
+  components: {},
   data() {
     return {
       BASE_URl: "http://127.0.0.1:5500/epub/",
@@ -33,6 +33,9 @@ export default {
       }
     },
     showTitleAndMenu() {
+      // this.$store.state.ifTitleMenuShow = !this.$store.state.ifTitleMenuShow;
+      this.$store.commit("SEETING_FONT_SHOW");
+      this.$store.commit("TITLE_MENU_SHOW");
       console.log("center");
     },
     initEpub() {
@@ -46,6 +49,7 @@ export default {
         methods: "default",
       });
       this.rendition.display();
+      this.rendition.themes.fontSize("30px");
       //手势滑动翻页的实现
       this.rendition.on("touchstart", (event) => {
         this.touchStartX = event.changedTouches[0].clientX; //滑动位置
@@ -87,9 +91,10 @@ export default {
 .ebook-reader {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+
   position: relative;
 }
+
 .mask {
   position: absolute;
   top: 0;
@@ -98,6 +103,7 @@ export default {
   height: 100%;
   z-index: 100;
   display: flex;
+
   .left {
     flex: 0 0 px2rem(100);
     //background: red;

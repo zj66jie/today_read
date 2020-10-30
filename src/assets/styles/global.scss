@@ -2,3 +2,39 @@
 @import "./mixin";
 @import "./flapCard";
 @import "./home";
+.icon {
+  color: #333;
+  font-size: px2rem(20);
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// slideTitle-down动画
+.slideTitle-down-enter,
+.slideTitle-down-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+.slideTitle-down-enter-to,
+.slideTitle-down-leave {
+  transform: translate3d(0, 0, 0);
+}
+.slideTitle-down-enter-active,
+.slideTitle-down-leave-active {
+  transition: all 0.15s linear;
+}
+// slideMenu-up动画
+.slideMenu-up-enter,
+.slideMenu-up-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+.slideMenu-up-enter-to,
+.slideMenu-up-leave {
+  transform: translate3d(0, 0, 0);
+}
+.slideMenu-up-enter-active,
+.slideMenu-up-leave-active {
+  transition: all 0.15s linear;
+}
