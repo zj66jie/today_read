@@ -1,29 +1,36 @@
 <template>
-  <transition name="slideMenu-up">
-    <div class="menu-wrapper" v-show="$store.state.ifTitleMenuShow">
-      <div class="icon-wrapper">
-        <span class="icon-menu icon"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="icon-progress icon"></span>
-      </div>
-      <!-- <div class="icon-wrapper">
+  <div>
+    <transition name="slideMenu-up">
+      <div class="menu-wrapper" v-show="$store.state.ifTitleMenuShow">
+        <div class="icon-wrapper">
+          <span class="icon-menu icon"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="icon-progress icon"></span>
+        </div>
+        <!-- <div class="icon-wrapper">
         <span class="icon-bright icon"></span>
       </div> -->
-      <div class="icon-wrapper" @click="showSettingFont">
-        <span class="icon-A icon"></span>
+        <div class="icon-wrapper" @click="showSettingFont">
+          <span class="icon-A icon"></span>
+        </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+    <EbookSettingFamily></EbookSettingFamily>
+  </div>
 </template>
 
 <script>
+import EbookSettingFamily from "./EbookSettingFamily";
 export default {
   name: "EBookMenu",
   data() {
     return {
       msg: "Welcome to your vueName",
     };
+  },
+  components: {
+    EbookSettingFamily,
   },
   methods: {
     showSettingFont() {

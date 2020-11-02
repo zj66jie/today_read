@@ -2,20 +2,33 @@
   <transition name="slideMenu-up">
     <div class="setting-wrapper" v-show="$store.state.ifSettingShow">
       <div class="setting-font">
-        <div class="setting-font-icon">
+        <div class="setting-font-icon" @click="fontReduce">
           <el-button size="small" round>A -</el-button>
         </div>
         <div class="setting-font-num">{{ $store.state.fontSize }}</div>
-        <div class="setting-font-icon">
+        <div class="setting-font-icon" @click="fontAdd">
           <el-button size="small" round>A +</el-button>
         </div>
         <div class="setting-font-fonts">
-          <div class="setting-font-click"><span>字体</span></div>
+          <div class="setting-font-click" @click="showSettingFamily">
+            <span>字体</span>
+            <span class="icon-forward"></span>
+          </div>
           <!-- <span>字体</span> -->
         </div>
       </div>
+      <!-- 主题设置 -->
       <div class="setting-font-theme">
-        <div class="box">
+        <div class="box" v-for="(item, index) in boxStyle" :key="index">
+          <el-button
+            round
+            class="box1"
+            :class="{ isStyle: isSetStyle(item.box) }"
+            @click="setThems(item.box)"
+          >
+          </el-button>
+        </div>
+        <!-- <div class="box">
           <el-button round class="box1"></el-button>
         </div>
         <div class="box">
@@ -23,22 +36,71 @@
         </div>
         <div class="box">
           <el-button round class="box1"></el-button>
-        </div>
-        <div class="box">
-          <el-button round class="box1"></el-button>
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
 </template>
 
 <script>
+import EbookReader from "./EbookReader";
+import { saveFontSize } from "../../utils/localStorage";
 export default {
   name: "vueName",
   data() {
     return {
-      msg: "Welcome to your vueName",
+      boxStyle: [
+        { box: "white" },
+        { box: "eyeGreen" },
+        { box: "gold" },
+        { box: "black" },
+      ],
+      // 定在rednder定义四个主题注册
+      // themeList: [
+      //   {
+      //     name: "Default",
+      //     style: {
+      //       body: {
+      //         color: "#4CD1E0",
+      //         background: "#cecece",
+      //       },
+      //     },
+      //   },
+      // ],
     };
+  },
+  methods: {
+    //主题设置
+    setThems(style) {
+      console.log(style);
+      this.$store.commit("SET_DEFAULT_THEMS", style);
+    },
+    //主题设置
+    isSetStyle(isStyle) {
+      return this.$store.state.defaultThems === isStyle;
+    },
+
+    fontAdd() {
+      this.$store.commit("FONT_ADD");
+      //console.log(this.$store.state.currentBook);
+      this.$store.state.currentBook.rendition.themes.fontSize(
+        this.$store.state.fontSize + "px"
+      );
+      saveFontSize(this.$store.state.fileName, this.$store.state.fontSize);
+      // this.$store.state.currentBook;
+      // EbookReader.methods.settingFontAdd();
+    },
+    fontReduce() {
+      this.$store.commit("FONT_REDUCE");
+      //console.log(this.$store.state.currentBook);
+      this.$store.state.currentBook.rendition.themes.fontSize(
+        this.$store.state.fontSize + "px"
+      );
+      saveFontSize(this.$store.state.fileName, this.$store.state.fontSize);
+    },
+    showSettingFamily() {
+      this.$store.dispatch("fontFamileShow", true);
+    },
   },
 };
 </script>
@@ -72,7 +134,8 @@ export default {
       justify-content: flex-end;
       .setting-font-click {
         height: 100%;
-        width: px2rem(50);
+        width: px2rem(80);
+        font-size: px2rem(17);
         @include center;
       }
     }
@@ -95,6 +158,10 @@ export default {
     .box1 {
       padding: px2rem(15) px2rem(40);
       background-color: #fddda4;
+      // border: 1px solid red;
+    }
+    .isStyle {
+      border: 1px solid rgb(151, 150, 150);
     }
   }
 }

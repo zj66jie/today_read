@@ -27,14 +27,20 @@
 }
 // slideMenu-up动画
 .slideMenu-up-enter,
-.slideMenu-up-leave-to {
+.slideMenu-up-leave-to,
+.popup-list-enter,
+.popup-list-leave-to {
   transform: translate3d(0, 100%, 0);
 }
 .slideMenu-up-enter-to,
-.slideMenu-up-leave {
+.slideMenu-up-leave,
+.popup-list-enter-to,
+.popup-list-leave {
   transform: translate3d(0, 0, 0);
 }
 .slideMenu-up-enter-active,
-.slideMenu-up-leave-active {
+.slideMenu-up-leave-active,
+.popup-list-enter-active,
+.popup-list-leave-active {
   transition: all 0.15s linear;
 }
