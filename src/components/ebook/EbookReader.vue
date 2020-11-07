@@ -12,11 +12,16 @@
 
 <script>
 import Epub from "epubjs";
+
 import {
   saveFontFamily,
   getFontFamily,
   getFontSize,
   saveFontSize,
+  saveThemes,
+  getThemes,
+  saveLocation,
+  getLocation,
 } from "../../utils/localStorage";
 export default {
   name: "vueName",
@@ -28,11 +33,38 @@ export default {
       // 主题资源
       themeList: [
         {
+          name: "white",
+          style: {
+            body: {
+              color: "#303030",
+              background: "#F6F6F6",
+            },
+          },
+        },
+        {
           name: "eye",
           style: {
             body: {
-              color: "#4CD1E0",
-              background: "#282C34",
+              color: "#3E6344",
+              background: "#D4EED1",
+            },
+          },
+        },
+        {
+          name: "yellew",
+          style: {
+            body: {
+              color: "#664C35",
+              background: "#F6DAAB",
+            },
+          },
+        },
+        {
+          name: "pink",
+          style: {
+            body: {
+              color: "#87203B",
+              background: "#FDE6E7",
             },
           },
         },
@@ -42,18 +74,23 @@ export default {
   methods: {
     nextPage() {
       if (this.rendition) {
-        this.rendition.next();
+        this.rendition.next().then(() => {
+          this.refreshLocation();
+        });
       }
     },
     prevPage() {
       if (this.rendition) {
-        this.rendition.prev();
+        this.rendition.prev().then(() => {
+          this.refreshLocation();
+        });
       }
     },
     showTitleAndMenu() {
       // this.$store.state.ifTitleMenuShow = !this.$store.state.ifTitleMenuShow;
       this.$store.dispatch("fontFamileShow", false);
       this.$store.commit("SEETING_FONT_SHOW", false);
+      this.$store.commit("PROGRESS_SHOW", false);
       this.$store.commit("TITLE_MENU_SHOW");
     },
     //主题注册
@@ -62,49 +99,100 @@ export default {
         this.rendition.themes.register(theme.name, theme.style);
       });
     },
+    //初始化字体
+    initFamily() {
+      this.rendition.themes.font("HanYiKai"); //默认字体
+      let font = getFontFamily(this.$store.state.fileName);
+      if (!font) {
+        //如果为空
+        saveFontFamily(
+          this.$store.state.fileName,
+          this.$store.state.defaultFontFamily
+        );
+      } else {
+        this.rendition.themes.font(font);
+        this.$store.commit("SET_DEFAULT_FAMILY", font);
+      }
+    },
+    //初始化字号
+    initFontSize() {
+      let fontSize = getFontSize(this.$store.state.fileName);
+      if (!fontSize) {
+        //如果为空
+        saveFontSize(this.$store.state.fileName, this.$store.state.fontSize);
+      } else {
+        this.rendition.themes.fontSize(fontSize + "px");
+        this.$store.commit("SET_DEFAULT_FONTSIZE", fontSize);
+      }
+    },
+    //初始化主题
+    initThemes() {
+      let theme = getThemes("thisThemes");
+      console.log(theme);
+      if (!theme) {
+        //如果为空
+        saveThemes("thisThemes", this.$store.state.defaultThems);
+      } else {
+        this.rendition.themes.select(theme);
+        this.$store.commit("SET_DEFAULT_THEMS", theme);
+      }
+    },
+    //初始化进度
+    initProgress() {
+      let progress = getLocation(this.$store.state.fileName);
+      if (!progress) {
+        this.rendition.display();
+      } else {
+        this.rendition.display(progress).then(() => {
+          this.refreshLocation();
+        });
+      }
+    },
     initEpub() {
       const url = this.BASE_URl + this.$store.state.fileName + ".epub";
       //console.log(url);
       //渲染电子书
       this.book = new Epub(url);
-      console.log(this.book);
+
       this.$store.commit("EPUB_BOOK", this.book);
       this.rendition = this.book.renderTo("read", {
         width: innerWidth,
         height: innerHeight,
         methods: "default",
       });
+      //渲染完毕后
       this.rendition.display().then(() => {
-        //电子书渲染完毕字体
-        this.rendition.themes.font("HanYiKai"); //默认字体
-        let font = getFontFamily(this.$store.state.fileName);
-        if (!font) {
-          //如果为空
-          saveFontFamily(
-            this.$store.state.fileName,
-            this.$store.state.defaultFontFamily
-          );
-        } else {
-          this.rendition.themes.font(font);
-          this.$store.commit("SET_DEFAULT_FAMILY", font);
-        }
-        //字号初始化设置
-        let fontSize = getFontSize(this.$store.state.fileName);
-        if (!fontSize) {
-          //如果为空
-          saveFontSize(this.$store.state.fileName, this.$store.state.fontSize);
-        } else {
-          this.rendition.themes.fontSize(fontSize + "px");
-          this.$store.commit("SET_DEFAULT_FONTSIZE", fontSize);
-        }
+        this.initFamily();
+        this.initFontSize();
+        this.registerTheme();
+        this.initThemes();
+
+        // this.rendition.themes.select(this.$store.state.defaultThems);
       });
+      //滑动进度条
+      this.book.ready
+        .then(() => {
+          return this.book.locations.generate(
+            750 *
+              (window.innerWidth / 375) *
+              (getFontSize(this.$store.state.fileName) / 16)
+          );
+        })
+        .then((res) => {
+          this.$store.commit("SET_PROGRESS_USE", true);
+          console.log(res);
+          this.initProgress();
+          // this.locations = this.book.locations;
+          // this.rendition.display(this.locations.cfiFromPercentage(0.5));
+        });
 
       // 字体大小
       this.rendition.themes.fontSize(this.$store.state.fontSize + "px");
       //主题注册引入
-      this.registerTheme();
+      // this.registerTheme();
       //主题使用
-      this.rendition.themes.select("eye");
+      // this.rendition.themes.select(this.$store.state.defaultThems);
+
       //字体文件引入
       this.rendition.hooks.content.register((contents) => {
         Promise.all([
@@ -134,6 +222,23 @@ export default {
       //   // event.preventDefault();
       //   // event.stopPropagation();
       // });
+    },
+    //刷新和存储进度
+    refreshLocation() {
+      const currentLocation = this.$store.state.currentBook.rendition.currentLocation();
+      // const progress = this.$store.state.currentBook.locations.percentageFromCfi(
+      //   currentLocation.start.cfi
+      // );
+      const startCfi = currentLocation.start.cfi;
+      // console.log(currentLocation.start.index + "ddd");
+      // console.log(progress);
+      saveLocation(this.$store.state.fileName, startCfi);
+      this.$store.dispatch("setSection", currentLocation.start.index);
+      //更新进度条 vuex
+      this.$store.dispatch(
+        "setProgreess",
+        Math.floor(currentLocation.start.percentage * 100)
+      );
     },
   },
   mounted() {

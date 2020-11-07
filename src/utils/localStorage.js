@@ -33,6 +33,20 @@ export function saveFontFamily(fileName, fontFamily) {
 export function getFontFamily(fileName) {
   return getBookObject(fileName, "fontFamily");
 }
+//主题存储和获取
+export function saveThemes(themeName, theme) {
+  return setLocalStorage(themeName, theme);
+}
+export function getThemes(themeName) {
+  return getLocalStorage(themeName);
+}
+//阅读进度
+export function saveLocation(fileName, location) {
+  setBookObject(fileName, "location", location);
+}
+export function getLocation(fileName) {
+  return getBookObject(fileName, "location");
+}
 
 //获取然后传入缓存存储
 export function setBookObject(fileName, key, value) {

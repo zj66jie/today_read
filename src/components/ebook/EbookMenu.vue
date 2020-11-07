@@ -1,11 +1,15 @@
 <template>
   <div>
     <transition name="slideMenu-up">
-      <div class="menu-wrapper" v-show="$store.state.ifTitleMenuShow">
+      <div
+        class="menu-wrapper"
+        :style="{ background: $store.state.background }"
+        v-show="$store.state.ifTitleMenuShow"
+      >
         <div class="icon-wrapper">
           <span class="icon-menu icon"></span>
         </div>
-        <div class="icon-wrapper">
+        <div class="icon-wrapper" @click="showSettingProgress">
           <span class="icon-progress icon"></span>
         </div>
         <!-- <div class="icon-wrapper">
@@ -17,11 +21,13 @@
       </div>
     </transition>
     <EbookSettingFamily></EbookSettingFamily>
+    <EbookSettingProgress></EbookSettingProgress>
   </div>
 </template>
 
 <script>
 import EbookSettingFamily from "./EbookSettingFamily";
+import EbookSettingProgress from "./EbookSettingProgress";
 export default {
   name: "EBookMenu",
   data() {
@@ -31,11 +37,15 @@ export default {
   },
   components: {
     EbookSettingFamily,
+    EbookSettingProgress,
   },
   methods: {
     showSettingFont() {
       this.$store.commit("SEETING_FONT_SHOW", true);
       // this.$store.commit("TITLE_MENU_SHOW");
+    },
+    showSettingProgress() {
+      this.$store.commit("PROGRESS_SHOW", true);
     },
   },
 };

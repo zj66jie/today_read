@@ -1,7 +1,11 @@
 <template>
   <div>
     <transition name="slideTitle-down">
-      <div class="title-wrapper" v-show="$store.state.ifTitleMenuShow">
+      <div
+        class="title-wrapper"
+        :style="{ background: $store.state.background }"
+        v-show="$store.state.ifTitleMenuShow"
+      >
         <div class="left">
           <span class="icon-back icon"></span>
         </div>

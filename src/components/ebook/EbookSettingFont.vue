@@ -22,21 +22,13 @@
         <div class="box" v-for="(item, index) in boxStyle" :key="index">
           <el-button
             round
-            class="box1"
+            class="box1 "
             :class="{ isStyle: isSetStyle(item.box) }"
+            :style="{ background: item.background }"
             @click="setThems(item.box)"
           >
           </el-button>
         </div>
-        <!-- <div class="box">
-          <el-button round class="box1"></el-button>
-        </div>
-        <div class="box">
-          <el-button round class="box1"></el-button>
-        </div>
-        <div class="box">
-          <el-button round class="box1"></el-button>
-        </div> -->
       </div>
     </div>
   </transition>
@@ -44,38 +36,77 @@
 
 <script>
 import EbookReader from "./EbookReader";
-import { saveFontSize } from "../../utils/localStorage";
+import { saveFontSize, saveThemes, getThemes } from "../../utils/localStorage";
 export default {
   name: "vueName",
   data() {
     return {
       boxStyle: [
-        { box: "white" },
-        { box: "eyeGreen" },
-        { box: "gold" },
-        { box: "black" },
+        { box: "white", background: "#F6F6F6" },
+        { box: "eye", background: "#D4EED1" },
+        { box: "yellew", background: "#F6DAAB" },
+        { box: "pink", background: "#FDE6E7" },
       ],
-      // 定在rednder定义四个主题注册
-      // themeList: [
-      //   {
-      //     name: "Default",
-      //     style: {
-      //       body: {
-      //         color: "#4CD1E0",
-      //         background: "#cecece",
-      //       },
-      //     },
-      //   },
-      // ],
+      // 定在rednder定义四个主题注册（在ebookReader中定义起作用）
+      themeList: [
+        {
+          name: "white",
+          style: {
+            body: {
+              color: "#303030",
+              background: "#F6F6F6",
+            },
+          },
+        },
+        {
+          name: "eye",
+          style: {
+            body: {
+              color: "#3E6344",
+              background: "#D4EED1",
+            },
+          },
+        },
+        {
+          name: "yellew",
+          style: {
+            body: {
+              color: "#664C35",
+              background: "#F6DAAB",
+            },
+          },
+        },
+        {
+          name: "blue",
+          style: {
+            body: {
+              color: "#94A5B7",
+              background: "#27384B",
+            },
+          },
+        },
+      ],
     };
   },
   methods: {
     //主题设置
     setThems(style) {
-      console.log(style);
+      // console.log(index);
       this.$store.commit("SET_DEFAULT_THEMS", style);
+
+      // this.themeList.forEach((theme) => {
+      //   this.$store.state.currentBook.rendition.themes.register(
+      //     theme.name,
+      //     theme.style
+      //   );
+      // });
+
+      this.$store.state.currentBook.rendition.themes.select(style);
+
+      saveThemes("thisThemes", style);
+      console.log(getThemes("thisThemes"));
     },
-    //主题设置
+    //主题设置UI边框显示
     isSetStyle(isStyle) {
       return this.$store.state.defaultThems === isStyle;
     },
@@ -160,9 +191,13 @@ export default {
       background-color: #fddda4;
       // border: 1px solid red;
     }
+
     .isStyle {
       border: 1px solid rgb(151, 150, 150);
     }
+  }
+  .box :nth-of-type(2) {
+    background-color: #033062;
   }
 }
 .el-button.is-round {
