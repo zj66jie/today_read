@@ -31,7 +31,12 @@
           <span class="icon-forward icon"></span>
         </div>
       </div>
-      <div class="read-progress">进度{{ $store.state.progress }}%</div>
+      <div class="read-progress" v-show="!$store.state.bookAvisible">
+        加载中
+      </div>
+      <div class="read-progress" v-show="$store.state.bookAvisible">
+        进度{{ $store.state.progress }}%
+      </div>
     </div>
   </transition>
 </template>

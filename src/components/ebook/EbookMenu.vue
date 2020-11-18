@@ -6,7 +6,7 @@
         :style="{ background: $store.state.background }"
         v-show="$store.state.ifTitleMenuShow"
       >
-        <div class="icon-wrapper">
+        <div class="icon-wrapper" @click="showContents">
           <span class="icon-menu icon"></span>
         </div>
         <div class="icon-wrapper" @click="showSettingProgress">
@@ -22,12 +22,14 @@
     </transition>
     <EbookSettingFamily></EbookSettingFamily>
     <EbookSettingProgress></EbookSettingProgress>
+    <EbookSlide></EbookSlide>
   </div>
 </template>
 
 <script>
 import EbookSettingFamily from "./EbookSettingFamily";
 import EbookSettingProgress from "./EbookSettingProgress";
+import EbookSlide from "./EbookSlide";
 export default {
   name: "EBookMenu",
   data() {
@@ -38,14 +40,19 @@ export default {
   components: {
     EbookSettingFamily,
     EbookSettingProgress,
+    EbookSlide,
   },
   methods: {
     showSettingFont() {
       this.$store.commit("SEETING_FONT_SHOW", true);
+
       // this.$store.commit("TITLE_MENU_SHOW");
     },
     showSettingProgress() {
       this.$store.commit("PROGRESS_SHOW", true);
+    },
+    showContents() {
+      this.$store.dispatch("contentsShow", true);
     },
   },
 };

@@ -11,6 +11,9 @@ export default new Vuex.Store({
     ifSettingShow: false, //设置
     fontFamilyVisible: false, //显示字体设置
     progressVisible: false, ////显示进度条
+    contentsVisable: false, ////目录显示
+    navigation: null, //目录跳转
+    metadata: null, //目录中标题作者等信息
     progress: 0, //进度条value
     section: 0, //
     bookAvisible: false, //进度条是否可用
@@ -42,6 +45,9 @@ export default new Vuex.Store({
     PROGRESS_SHOW(state, boolean) {
       state.progressVisible = boolean;
     },
+    CONTENTS_SHOW(state, boolean) {
+      state.contentsVisable = boolean;
+    },
     SET_DEFAULT_FAMILY(state, font) {
       state.defaultFontFamily = font;
     },
@@ -56,6 +62,9 @@ export default new Vuex.Store({
     },
     SET_SECTION(state, section) {
       state.section = section;
+    },
+    SET_METADATA(state, sendMetadata) {
+      state.metadata = sendMetadata;
     },
 
     SET_DEFAULT_THEMS(state, style) {
@@ -97,6 +106,13 @@ export default new Vuex.Store({
     setSection: ({ commit }, section) => {
       return commit("SET_SECTION", section);
     },
+    contentsShow(context, boolean) {
+      context.commit("CONTENTS_SHOW", boolean);
+    },
+    saveMetaData(context, sendData) {
+      context.commit("SET_METADATA", sendData);
+    },
+
     // setTest(context) {
     //   context.commit("TEXT");
     // },

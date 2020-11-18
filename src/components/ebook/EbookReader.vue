@@ -148,6 +148,28 @@ export default {
         });
       }
     },
+    //目录 模块
+    parseBook() {
+      this.book.loaded.navigation.then((nav) => {
+        console.log(nav);
+        this.$store.state.navigation = nav.toc;
+        // const navItem = flatten(nav.toc)
+
+        // function find(item, level = 0) {
+        //   return !item.parent ? level : find(navItem.filter(parentItem => parentItem.id === item.parent)[0], ++level)
+        // }
+
+        // navItem.forEach(item => {
+        //   item.level = find(item)
+        // })
+        // this.setNavigation(navItem)
+      });
+      this.book.loaded.metadata.then((metadata) => {
+        // this.setMetadata(metadata)
+        this.$store.dispatch("saveMetaData", metadata);
+        console.log(metadata);
+      });
+    },
     initEpub() {
       const url = this.BASE_URl + this.$store.state.fileName + ".epub";
       //console.log(url);
@@ -155,6 +177,7 @@ export default {
       this.book = new Epub(url);
 
       this.$store.commit("EPUB_BOOK", this.book);
+      console.log(this.book);
       this.rendition = this.book.renderTo("read", {
         width: innerWidth,
         height: innerHeight,
@@ -166,7 +189,8 @@ export default {
         this.initFontSize();
         this.registerTheme();
         this.initThemes();
-
+        this.parseBook();
+        this.initProgress();
         // this.rendition.themes.select(this.$store.state.defaultThems);
       });
       //滑动进度条
