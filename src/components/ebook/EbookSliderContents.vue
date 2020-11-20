@@ -148,14 +148,16 @@ export default {
   }
   .slide-contents-list {
     padding: 0 px2rem(15);
-    margin-top: px2rem(15);
+    // margin-top: px2rem(5);
     box-sizing: border-box;
     .slide-contents-item {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
       font-size: px2rem(20);
-      height: px2rem(50);
+      height: px2rem(45);
+      line-height: px2rem(45);
+      border-bottom: 1px solid rgb(139, 139, 139);
     }
   }
 }

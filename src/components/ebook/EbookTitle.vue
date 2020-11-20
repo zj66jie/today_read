@@ -13,8 +13,14 @@
           <div class="icon-wrapper">
             <span class="icon-shelf icon"></span>
           </div>
-          <div class="icon-wrapper">
-            <span class="icon-cart icon"></span>
+          <div class="icon-wrapper" @click="addBookmark">
+            <span class="icon-bookmark icon"></span>
+            <span
+              class="add-mark"
+              v-show="markShow"
+              :style="{ color: $store.state.color }"
+              >添加成功</span
+            >
           </div>
           <div class="icon-wrapper">
             <span class="icon-more icon"></span>
@@ -40,18 +46,56 @@
 </template>
 
 <script>
+import { getBookmark, saveBookmark } from "../../utils/localStorage";
 export default {
   name: "EbookTitle",
   data() {
     return {
-      msg: "Welcome to your vueName",
+      markShow: false,
     };
+  },
+
+  methods: {
+    addBookmark() {
+      this.bookmark = getBookmark(this.$store.state.fileName);
+      if (!this.bookmark) {
+        this.bookmark = [];
+      }
+      const currentLocation = this.$store.state.currentBook.rendition.currentLocation();
+      const cfibase = currentLocation.start.cfi.replace(/!.*/, "");
+      const cfistart = currentLocation.start.cfi
+        .replace(/.*!/, "")
+        .replace(/\)$/, "");
+      const cfiend = currentLocation.end.cfi
+        .replace(/.*!/, "")
+        .replace(/\)$/, "");
+      const cfirange = `${cfibase}!,${cfistart},${cfiend})`;
+      this.$store.state.currentBook.getRange(cfirange).then((range) => {
+        const text = range.toString().replace(/\s\s/g, "");
+        this.bookmark.push({
+          cfi: currentLocation.start.cfi,
+          text: text,
+        });
+        saveBookmark(this.$store.state.fileName, this.bookmark);
+        this.markShow = true;
+        setTimeout(() => {
+          this.markShow = false;
+        }, 1000);
+      });
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/styles/global.scss";
+.add-mark {
+  position: fixed;
+  top: 30px;
+  right: 8px;
+  font-size: px2rem(12);
+  color: rgb(216, 153, 37);
+}
 .title-wrapper {
   position: fixed;
   top: 0;

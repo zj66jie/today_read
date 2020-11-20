@@ -13,13 +13,14 @@ export default new Vuex.Store({
     progressVisible: false, ////显示进度条
     contentsVisable: false, ////目录显示
     navigation: null, //目录跳转
-    metadata: null, //目录中标题作者等信息
+    metadata: {}, //目录中标题作者等信息
     progress: 0, //进度条value
-    section: 0, //
+    section: 0, //页码
     bookAvisible: false, //进度条是否可用
     defaultFontFamily: "HanYiKai", //默认字体
     defaultThems: "white", //默认主题
     background: "#fff", //上下弹出框背景色
+    color: "#fff", //字体颜色
     currentBook: null, //接收EbookReader传递过来的book实例信息
     numText: 123,
   },
@@ -72,15 +73,19 @@ export default new Vuex.Store({
       switch (style) {
         case "white":
           state.background = "#F6F6F6";
+          state.color = "#303030";
           break;
         case "eye":
           state.background = "#D4EED1";
+          state.color = "#3E6344";
           break;
         case "yellew":
           state.background = "#F6DAAB";
+          state.color = "#664C35";
           break;
         case "pink":
           state.background = "#FDE6E7";
+          state.color = "#87203B";
           break;
         default:
           break;

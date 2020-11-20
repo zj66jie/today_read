@@ -47,6 +47,19 @@ export function saveLocation(fileName, location) {
 export function getLocation(fileName) {
   return getBookObject(fileName, "location");
 }
+//书签
+export function saveBookmark(fileName, bookmark) {
+  setBookObject(fileName, "bookmark", bookmark);
+}
+// export function saveBookmark(fileName, bookmark) {
+//   new promise((res, rjt) => {
+//     setBookObject(fileName, "bookmark", bookmark);
+//     res("dd");
+//   });
+// }
+export function getBookmark(fileName) {
+  return getBookObject(fileName, "bookmark");
+}
 
 //获取然后传入缓存存储
 export function setBookObject(fileName, key, value) {

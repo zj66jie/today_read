@@ -55,6 +55,7 @@ export default {
     hideTitleAndMenu() {
       this.$store.dispatch("contentsShow", false);
       this.$store.commit("TITLE_MENU_SHOW");
+      this.currentTab = 1;
     },
     selectTab(tab) {
       this.currentTab = tab;
