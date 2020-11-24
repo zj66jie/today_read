@@ -6,7 +6,7 @@
         :style="{ background: $store.state.background }"
         v-show="$store.state.ifTitleMenuShow"
       >
-        <div class="left">
+        <div class="left" @click="backLast">
           <span class="icon-back icon"></span>
         </div>
         <div class="right">
@@ -56,6 +56,9 @@ export default {
   },
 
   methods: {
+    backLast() {
+      this.$router.go(-1);
+    },
     addBookmark() {
       this.bookmark = getBookmark(this.$store.state.fileName);
       if (!this.bookmark) {

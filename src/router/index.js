@@ -7,10 +7,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/ebook",
+    redirect: "/store",
     // name: 'Home',
     // component: Home
   },
+  //阅读器
   {
     path: "/ebook",
     component: () => import("../views/ebook/index.vue"),
@@ -21,6 +22,22 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/store",
+    component: () => import("../views/store/index.vue"),
+    redirect: "/store/home",
+    children: [
+      {
+        path: "home",
+        component: () => import("../views/store/StoreHome.vue"),
+      },
+      {
+        path: "detail",
+        component: () => import("../components/home/bookDetail.vue"),
+      },
+    ],
+  },
+
   {
     path: "/about",
     name: "About",
