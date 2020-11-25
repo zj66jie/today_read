@@ -36,9 +36,10 @@ export default {
   components: {
     TitleView
   },
-  mounted() {
-    console.log(this.showData);
-  },
+  // mounted() {
+  //   console.log(this.showData);
+  //   console.log(guessLike);
+  // },
   methods: {
 
   },

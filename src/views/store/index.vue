@@ -15,6 +15,15 @@ export default {
       transitionName: "",
     };
   },
+  beforeRouteUpdate(to, from, next) {
+    if (to.meta.key > from.meta.key) {
+      this.transitionName = "slide-left";
+    } else {
+      this.transitionName = "slide-right";
+    }
+    // this.transitionName = "slide-right";
+    next();
+  },
   components: {},
 };
 </script>
