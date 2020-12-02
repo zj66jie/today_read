@@ -1,7 +1,7 @@
 <template>
   <div class="home-title-wrapper">
     <div class="label">{{ label }}</div>
-    <!-- <div class="btn" :class="{'touch': ifOnTouch}" @touchstart="onTouchStart" @touchend="onTouchEnd" @mousedown="onTouchStart" @mouseup="onTouchEnd" @click="click">{{btn}}</div> -->
+    <div class="btn" @click="click">{{ btn }}</div>
   </div>
 </template>
 
@@ -17,7 +17,9 @@ export default {
     }
   },
   methods: {
-
+    click() {
+      this.$emit('onClick')
+    }
   }
 }
 </script>
@@ -26,9 +28,10 @@ export default {
 @import "../../assets/styles/global";
 .home-title-wrapper {
   width: 100%;
-  padding: px2rem(15) px2rem(10);
+  padding: px2rem(5) px2rem(10);
   box-sizing: border-box;
-  @include top;
+  // @include top;
+  display: flex;
   .label {
     flex: 1;
     font-size: px2rem(18);
@@ -38,9 +41,9 @@ export default {
   .btn {
     font-size: px2rem(14);
     color: rgba(64, 158, 255, 1);
-    &.touch {
-      color: rgba(64, 158, 255, 0.5);
-    }
+    // &.touch {
+    //   color: rgba(64, 158, 255, 0.5);
+    // }
   }
 }
 </style>

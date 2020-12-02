@@ -1,6 +1,10 @@
 <template>
   <div class="guess-you-like">
-    <TitleView :label="'猜你喜欢'"></TitleView>
+    <TitleView
+      :label="'畅销精选'"
+      :btn="'更多'"
+      @onClick="showBookCategory"
+    ></TitleView>
     <div class="guess-you-like-list">
       <div
         class="guess-you-like-item"
@@ -36,12 +40,17 @@ export default {
   components: {
     TitleView
   },
-  // mounted() {
-  //   console.log(this.showData);
-  //   console.log(guessLike);
-  // },
-  methods: {
 
+  methods: {
+    showBookCategory() {
+        this.$router.push({
+          path: '/store/list',
+          query: {
+            // category: getCategoryName(this.data.category),
+            categoryText: '畅想精选'
+          }
+        })
+      },
   },
 
 

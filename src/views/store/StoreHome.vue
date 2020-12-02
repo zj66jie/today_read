@@ -4,8 +4,9 @@
     <searchBar></searchBar>
     <!-- <button @click="read">月的</button>
     <button @click="read2">月的</button> -->
-    <div>
+    <div class="book-list">
       <GuessYouLike></GuessYouLike>
+      <BestSelect></BestSelect>
     </div>
     <!-- <router-view></router-view> -->
   </div>
@@ -14,6 +15,7 @@
 <script>
 import searchBar from "@/components/home/searchBar.vue";
 import GuessYouLike from "@/components/home/guessYouLike";
+import BestSelect from "@/components/home/bestSelect.vue";
 export default {
   name: "vueName",
   data() {
@@ -25,6 +27,7 @@ export default {
   components: {
     searchBar,
     GuessYouLike,
+    BestSelect,
   },
   methods: {
     read() {
@@ -44,7 +47,18 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/styles/global.scss";
 .store-home {
+  position: relative;
   width: 100%;
   height: 100%;
+  .book-list {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 </style>

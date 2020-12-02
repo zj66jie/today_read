@@ -33,6 +33,11 @@ const routes = [
         meta: { key: 3 },
       },
       {
+        path: "list",
+        component: () => import("../components/home/bookList.vue"),
+        meta: { key: 4 },
+      },
+      {
         path: "detail",
         component: () => import("../components/home/bookDetail.vue"),
         meta: { key: 5 },

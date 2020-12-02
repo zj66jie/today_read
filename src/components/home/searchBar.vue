@@ -11,10 +11,10 @@
         <span class="icon-shake icon1"></span>
       </div>
     </div>
-    <div class="search-bar-input">
+    <!-- <div class="search-bar-input">
       <span class="icon-search icon"></span>
       <input type="text" class="search" placeholder="输入搜索书籍" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
 @import "@/assets/styles/global.scss";
 .search-bar {
   width: 100%;
-  height: px2rem(94);
+  height: px2rem(50);
   .search-bar-title {
     width: 100%;
     display: flex;

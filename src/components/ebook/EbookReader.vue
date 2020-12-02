@@ -204,8 +204,9 @@ export default {
         })
         .then((res) => {
           this.$store.commit("SET_PROGRESS_USE", true);
-          console.log(res);
+          // console.log(res);
           this.initProgress();
+
           // this.locations = this.book.locations;
           // this.rendition.display(this.locations.cfiFromPercentage(0.5));
         });

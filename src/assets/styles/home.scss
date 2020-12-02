@@ -72,7 +72,7 @@ $text-tiny-max-height: px2rem(12);
   font-size: $text-small;
   max-height: $text-small-max-height;
   color: #999;
-  @include ellipsis2(1);
+  @include ellipsis2(2);
 }
 .third-title-tiny {
   line-height: $text-tiny-lh;
