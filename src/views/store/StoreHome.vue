@@ -7,6 +7,8 @@
     <div class="book-list">
       <GuessYouLike></GuessYouLike>
       <BestSelect></BestSelect>
+      <TodayRecommend></TodayRecommend>
+      <classic-works></classic-works>
     </div>
     <!-- <router-view></router-view> -->
   </div>
@@ -16,6 +18,8 @@
 import searchBar from "@/components/home/searchBar.vue";
 import GuessYouLike from "@/components/home/guessYouLike";
 import BestSelect from "@/components/home/bestSelect.vue";
+import TodayRecommend from "@/components/home/todayRecommend.vue";
+import ClassicWorks from "@/components/home/classicWorks.vue";
 export default {
   name: "vueName",
   data() {
@@ -28,6 +32,8 @@ export default {
     searchBar,
     GuessYouLike,
     BestSelect,
+    TodayRecommend,
+    ClassicWorks,
   },
   methods: {
     read() {

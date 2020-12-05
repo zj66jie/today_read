@@ -26,6 +26,15 @@ export const guessLike = [
     sort: "计算机科学",
     fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
   },
+  {
+    img: "/images/guessLike/c3.jpg",
+    author: "Olav Lysne",
+    title: "The Huawei and Snowden Questions",
+    desc:
+      " The Huawei and Snowden QuestionsVolum 4Simula SpringerBriefs on ComputingEditor-in-ChiefAslak Tveit",
+    sort: "计算机科学",
+    fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
+  },
 ];
 
 export const bookList = [...guessLike];
