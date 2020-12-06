@@ -24,14 +24,14 @@
 
 <script type="text/ecmascript-6">
 import TitleView from '@/components/home/title.vue'
-import {guessLike} from '@/utils/bookData.js'
+import {classicWorks} from '@/utils/bookData.js'
 import { ebookHome } from '@/utils/mixin'
 export default {
   name:'classicWorks',
   mixins:[ebookHome],
   data() {
     return {
-       showData:guessLike
+       showData:classicWorks
     }
   },
   components: {

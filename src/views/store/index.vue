@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       transitionName: "",
+      rememberScroll: 0,
     };
   },
   beforeRouteUpdate(to, from, next) {

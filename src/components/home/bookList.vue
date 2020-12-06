@@ -17,7 +17,7 @@
 import DetailTitle from "./detaiTitle";
 import bookListContent from "./bookListContent";
 import Scroll from "@/components/commen/Scroll.vue";
-import { guessLike } from "@/utils/bookData.js";
+import * as bookDataList from "@/utils/bookData.js";
 // import * as bookData from "@/utils/bookData.js";
 export default {
   name: "vueName",
@@ -25,7 +25,7 @@ export default {
     return {
       title: "书本",
       titleText: "",
-      showData: guessLike,
+      showData: [],
     };
   },
   components: {
@@ -36,6 +36,15 @@ export default {
   created() {
     // this.getList();
     this.titleText = this.$route.query.categoryText; //接收路由信息，筛选图书数据
+    console.log(this.titleText);
+    switch (this.titleText) {
+      case "经典之作":
+        this.showData = bookDataList.classicWorks;
+        break;
+
+      default:
+        break;
+    }
   },
   methods: {
     back() {

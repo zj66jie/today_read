@@ -26,11 +26,13 @@ const routes = [
     path: "/store",
     component: () => import("../views/store/index.vue"),
     redirect: "/store/home",
+    meta: { keepAlive: true },
     children: [
       {
         path: "home",
         component: () => import("../views/store/StoreHome.vue"),
         meta: { key: 3 },
+        // meta: { keepAlive: true },
       },
       {
         path: "list",
