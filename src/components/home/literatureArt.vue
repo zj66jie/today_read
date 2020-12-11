@@ -1,7 +1,7 @@
 <template>
   <div class="guess-you-like">
     <TitleView
-      :label="'经典之作'"
+      :label="'文学艺术'"
       :btn="'更多'"
       @onClick="showBookCategory"
     ></TitleView>
@@ -24,14 +24,14 @@
 
 <script type="text/ecmascript-6">
 import TitleView from '@/components/home/title.vue'
-import {classicWorks} from '@/utils/bookData.js'
+import {LiteratureArt} from '@/utils/bookData.js'
 import { ebookHome } from '@/utils/mixin'
 export default {
   name:'classicWorks',
   mixins:[ebookHome],
   data() {
     return {
-       showData:classicWorks
+       showData:LiteratureArt
     }
   },
   components: {
@@ -44,7 +44,7 @@ export default {
           path: '/store/list',
           query: {
             // category: getCategoryName(this.data.category),
-            categoryText: '经典之作'
+            categoryText: '文学艺术'
           }
         })
       },
@@ -70,7 +70,7 @@ export default {
       padding: 0 px2rem(5);
       box-sizing: border-box;
       .img-wrapper {
-        // padding-bottom: px2rem(50);
+        padding-bottom: px2rem(50);
         .img1 {
           height: 100%;
           width: 100%;

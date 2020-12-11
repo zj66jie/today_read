@@ -26,16 +26,58 @@ export const guessLike = [
     sort: "计算机科学",
     fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
   },
+  // {
+  //   img: "/images/guessLike/c3.jpg",
+  //   author: "Olav Lysne",
+  //   title: "The Huawei and Snowden Questions",
+  //   desc:
+  //     " The Huawei and Snowden QuestionsVolum 4Simula SpringerBriefs on ComputingEditor-in-ChiefAslak Tveit",
+  //   sort: "计算机科学",
+  //   fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
+  // },
+];
+
+//文学艺术
+export const LiteratureArt = [
   {
-    img: "/images/guessLike/c3.jpg",
-    author: "Olav Lysne",
-    title: "The Huawei and Snowden Questions",
+    img: "/images/LiteratureArt/20岁.jpg",
+    author: "林夏萨摩",
+    title: "伟大的孤独",
     desc:
-      " The Huawei and Snowden QuestionsVolum 4Simula SpringerBriefs on ComputingEditor-in-ChiefAslak Tveit",
-    sort: "计算机科学",
-    fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
+      "在这本书里，作者直接将话题聚焦于“20出头的年轻人所面临社会竞争压力而感到的焦虑和惶恐”这个普遍存在的社会现象。本书不灌毫无意义的鸡汤，不进行无关痛痒的说教，只用自己和身边朋友的实际经验证明，对于年轻人来说，迷茫和焦虑，都是再正常不过的事情，只有脚踏实地，付出200%的决心和努力，才能真正意义上突破自己，你要你还活着，还有热血和冲动，永远都不会来不及。",
+    sort: "文学艺术",
+    fileName: "_wenXue|erShi",
+  },
+  {
+    img: "/images/LiteratureArt/juRen.jpg",
+    author: "[英] 肯·福莱特",
+    title: "巨人的陨落",
+    desc:
+      "在第一次世界大战的硝烟中，每一个迈向死亡的生命都在热烈地生长……从充满灰尘和危险的煤矿到闪闪发光的皇室宫殿，从代表着权力的走廊到爱恨纠缠的卧室，五个家族迥然不同又纠葛不断的命运逐渐揭晓，波澜壮阔地展现了一个我们自认为了解，但从未如此真切感受过的20世纪。",
+    sort: "文学艺术",
+    fileName: "_wenXue|巨人的陨落",
+  },
+  {
+    img: "/images/LiteratureArt/jiangShi.jpg",
+    author: "[美] 马克斯·布鲁克斯",
+    title: "僵尸生存指南",
+    desc:
+      "《僵尸生存指南》是一本教人们如何在僵尸横行的世界中求生存的完全指南，从选择武器到制定逃生计划，从家中防御到主动出击，从储存食物到选择交通工具，作者进行了事无巨细的指导。《僵尸生存指南》所有的知识和求生技能都是通过艰难的探索和经验来积累的，所有的研究成果均是建立在诸如历史记录、现场勘查、实验室实验和目击者记录等内容的基础上。此书将大大增加人们在遭遇僵尸时的生存几率。作者马克斯·布鲁克斯还列举了人类历史上发生过的无数次僵尸灾难，证明这一切都有可能发生！",
+    sort: "科幻",
+    fileName: "_keHuan|僵尸生存指南",
+  },
+  {
+    img: "/images/LiteratureArt/s1041849.jpg",
+    author: "李学勤",
+    title: "细说中国历史",
+    desc:
+      "细讲中国历史，弘扬中华文化。丛书是以弘扬中华文化为目的，面向大众的、可信的、通俗化的中国历史。作者均为对中国历史素有研究且有志于通俗历史写作的专家，多为历史学博士，确保内容的可信。每本20万字、图片200余幅，图文并茂，深入浅出。",
+    sort: "文学艺术",
+    fileName: "_wenXue|细说中国历史丛书",
   },
 ];
+
+// 经典之作
 export const classicWorks = [
   {
     img: "/images/classicWorks/j1.jpg",
@@ -74,4 +116,68 @@ export const classicWorks = [
     fileName: "classicWorks|hongLou",
   },
 ];
-export const bookList = [...guessLike, ...classicWorks];
+// 今日推荐
+export const todayRecommend = [
+  {
+    img: "/images/todayRecommend/j1.jpg",
+    author: "[法] 圣-埃克苏佩里",
+    title: "小王子",
+    desc:
+      "《小王子》其实只是《小王子三部曲》的终篇，它的前传《风沙星辰》《夜间飞行》里埋藏着《小王子》真正的深层意义。只有阅读完整的《小王子三部曲》，才能领会小王子是谁，从哪里来，到哪里去，并理解作者最后神秘失踪的必然结局。《小王子三部曲》：《小王子》《风沙星辰》《夜间飞行》简体中文版初次完整出版！《小王子三部曲》是史上尤其适合作为生日礼物的书！纪念小王子诞生75周年完整珍藏版。在人类共同的精神世界，《小王子》写尽了灵魂的纯真、赤诚与孤独，登顶“人类有史以来经典读物”书单，被誉为“每个人不可不读的心灵之书”，被译成300多种语言，拥有4亿多读者，阅读率仅次于《圣经》欢迎你从《小王子三部曲》进入“读客精神成长文库”！",
+    sort: "漫画",
+    fileName: "_manHua|xiaoWangZi",
+  },
+  {
+    img: "/images/todayRecommend/j2.jpg",
+    author: "[日] 井上雄彦",
+    title: "灌篮高手",
+    desc:
+      "《灌篮高手》是日本漫画家井上雄彦以高中篮球为题材的少年漫画，在《周刊少年JUMP》1990年42号至1996年27号上连载，单行本在17个国家和地区发行。1995年，《灌篮高手》获日本第40届小学馆漫画奖；2006年，日本文化厅媒体艺术祭10周年纪念企划“日本的媒体艺术100选”，《灌篮高手》获得漫画部门第1位；2009年入选由中国图书商报和中国出版科研所联合评出的“新中国60年中国最具影响力的600本书”。",
+    sort: "漫画",
+    fileName: "_manHua|guanLan",
+  },
+  {
+    img: "/images/todayRecommend/j3.jpg",
+    author: "刘慈欣",
+    title: "三体",
+    desc:
+      "文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。地球文明向宇宙发出的第一声啼鸣，以太阳为中心，以光速向宇宙深处飞驰……四光年外，“三体文明”正苦苦挣扎——三颗无规则运行的太阳主导下的百余次毁灭与重生逼迫他们逃离母星。而恰在此时。他们接收到了地球发来的信息。在运用超技术锁死地球人的基础科学之后。三体人庞大的宇宙舰队开始向地球进发……人类的末日悄然来临。",
+    sort: "科幻",
+    fileName: "_keHuan|sanTi",
+  },
+];
+
+export const bookList = [
+  ...guessLike,
+  ...classicWorks,
+  ...todayRecommend,
+  ...LiteratureArt,
+];
+
+let cate1 = bookList.filter((s) => {
+  return s.sort == "计算机科学";
+});
+
+// 分类
+export const categoryData = [
+  {
+    img: "/images/todayRecommend/j1.jpg",
+    sort: "经典之作",
+    num: cate1.length,
+  },
+  {
+    img: "/images/todayRecommend/j1.jpg",
+    sort: "计算机科学",
+    num: cate1.length,
+  },
+  {
+    img: "/images/todayRecommend/j1.jpg",
+    sort: "计算机科学",
+    num: cate1.length,
+  },
+  {
+    img: "/images/todayRecommend/j1.jpg",
+    sort: "计算机科学",
+    num: cate1.length,
+  },
+];

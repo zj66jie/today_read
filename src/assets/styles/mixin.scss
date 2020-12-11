@@ -57,7 +57,7 @@ $ratio: 375 / 10;
 
 @mixin columnCenter {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; //竖直排布
   justify-content: center;
   align-items: center;
 }

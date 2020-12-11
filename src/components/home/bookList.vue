@@ -41,6 +41,14 @@ export default {
       case "经典之作":
         this.showData = bookDataList.classicWorks;
         break;
+      case "文学艺术":
+        this.showData = bookDataList.LiteratureArt;
+        break;
+      case "计算机科学":
+        this.showData = bookDataList.bookList.filter((s) => {
+          return s.sort == "计算机科学";
+        });
+        break;
 
       default:
         break;

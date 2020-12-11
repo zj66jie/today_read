@@ -1,10 +1,6 @@
 <template>
   <div class="guess-you-like">
-    <TitleView
-      :label="'今日推荐'"
-      :btn="'更多'"
-      @onClick="showBookCategory"
-    ></TitleView>
+    <TitleView :label="'今日推荐'" @onClick="showBookCategory"></TitleView>
     <div class="guess-you-like-list">
       <div
         class="guess-you-like-item"
@@ -27,14 +23,14 @@
 
 <script type="text/ecmascript-6">
 import TitleView from '@/components/home/title.vue'
-import {guessLike} from '@/utils/bookData.js'
+import {todayRecommend} from '@/utils/bookData.js'
 import { ebookHome } from '@/utils/mixin'
 export default {
   name:'guessYouLike',
   mixins:[ebookHome],
   data() {
     return {
-       showData:guessLike
+       showData:todayRecommend
     }
   },
   components: {

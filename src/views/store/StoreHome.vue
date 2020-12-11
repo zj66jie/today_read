@@ -1,15 +1,17 @@
 <template>
   <!-- 首页 -->
   <div class="store-home">
-    <button @click="test">2222</button>
-    <!-- <searchBar></searchBar> -->
+    <!-- <button @click="test">2222</button> -->
+    <searchBar></searchBar>
     <!-- <button @click="read">月的</button>
     <button @click="read2">月的</button> -->
     <div class="book-list" ref="bookListWrapper">
       <GuessYouLike></GuessYouLike>
+      <LiteratureArt></LiteratureArt>
       <BestSelect></BestSelect>
       <TodayRecommend></TodayRecommend>
       <classic-works></classic-works>
+      <category></category>
     </div>
 
     <!-- <router-view></router-view> -->
@@ -22,7 +24,9 @@ import GuessYouLike from "@/components/home/guessYouLike";
 import BestSelect from "@/components/home/bestSelect.vue";
 import TodayRecommend from "@/components/home/todayRecommend.vue";
 import ClassicWorks from "@/components/home/classicWorks.vue";
+import LiteratureArt from "@/components/home/literatureArt.vue";
 import { setLocalStorage, getLocalStorage } from "@/utils/localStorage.js";
+import Category from "../../components/home/category.vue";
 export default {
   name: "vueName",
   data() {
@@ -38,6 +42,8 @@ export default {
     BestSelect,
     TodayRecommend,
     ClassicWorks,
+    LiteratureArt,
+    Category,
   },
   methods: {
     read() {
