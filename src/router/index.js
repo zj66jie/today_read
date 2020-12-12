@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -22,12 +21,19 @@ const routes = [
       },
     ],
   },
+  // 书城
   {
     path: "/store",
     component: () => import("../views/store/index.vue"),
     redirect: "/store/home",
     meta: { keepAlive: true },
     children: [
+      {
+        path: "shelf",
+        component: () => import("../components/shelf/shelfHome.vue"),
+        meta: { key: 1 },
+        // meta: { keepAlive: true },
+      },
       {
         path: "home",
         component: () => import("../views/store/StoreHome.vue"),
@@ -45,16 +51,6 @@ const routes = [
         meta: { key: 5 },
       },
     ],
-  },
-
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
 ];
 

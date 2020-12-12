@@ -1,7 +1,7 @@
 <template>
   <div class="guess-you-like">
     <TitleView
-      :label="'文学艺术'"
+      :label="'文学推荐'"
       :btn="'更多'"
       @onClick="showBookCategory"
     ></TitleView>
@@ -44,7 +44,7 @@ export default {
           path: '/store/list',
           query: {
             // category: getCategoryName(this.data.category),
-            categoryText: '文学艺术'
+            categoryText: '文学推荐'
           }
         })
       },

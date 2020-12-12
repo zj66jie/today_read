@@ -7,8 +7,8 @@
       <div class="title-text">
         <span class="title-text-span icon1">书城</span>
       </div>
-      <div class="title-icon-shake">
-        <span class="icon-shake icon1"></span>
+      <div class="title-icon-shake" @click="shelfTo">
+        <span class="icon-shelf icon1"></span>
       </div>
     </div>
     <!-- <div class="search-bar-input">
@@ -25,6 +25,13 @@ export default {
     return {
       msg: "Welcome to your vueName",
     };
+  },
+  methods: {
+    shelfTo() {
+      this.$router.push({
+        path: "/store/shelf",
+      });
+    },
   },
 };
 </script>

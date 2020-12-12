@@ -35,8 +35,8 @@
         听书
       </div> -->
       <div class="bottom-btn" @click.stop.prevent="addOrRemoveShelf()">
-        <!-- <span class="icon-check" v-if="inBookShelf"></span> -->
-        加入书架
+        <span class="icon-check" v-if="inBookShelf"> 已加入书架</span>
+        <span v-else>加入书架</span>
       </div>
     </div>
   </div>
@@ -46,6 +46,7 @@
 import DetailTitle from "./detaiTitle";
 import Scroll from "@/components/commen/Scroll";
 import { bookList } from "@/utils/bookData.js";
+import { setLocalStorage, getLocalStorage } from "@/utils/localStorage";
 export default {
   name: "vueName",
   data() {
@@ -57,6 +58,9 @@ export default {
       title: "",
       desc: "",
       sort: "",
+      id: 1,
+      shelfBooklist: [],
+      inBookShelf: false,
     };
   },
   components: {
@@ -66,12 +70,23 @@ export default {
   created() {
     // 根据路由获取书籍id
     this.fileName = this.$route.query.fileName;
+    //判断是否存在缓存书架信息
+    if (getLocalStorage("bookShelf")) {
+      this.shelfBooklist = getLocalStorage("bookShelf");
+    }
+    //判断是否当前图书已经加入书架
+    if (this.shelfBooklist) {
+      let addRemove = this.shelfBooklist.some((s) => {
+        return s.fileName == this.fileName;
+      });
 
-    console.log(this.fileName);
-    // console.log(thisfileName);
+      if (addRemove) {
+        this.inBookShelf = true;
+      }
+    }
   },
   mounted() {
-    console.log(this.bookList);
+    // console.log(this.bookList);
     for (let item in this.bookList) {
       if (this.bookList[item].fileName == this.fileName) {
         this.author = this.bookList[item].author;
@@ -82,13 +97,6 @@ export default {
         // console.log(this.author);
       }
     }
-    // for (let index = 0; index < array.length; index++) {
-    //   const element = array[index];
-
-    // }
-    // if (this.fileName=) {
-
-    // }
   },
   methods: {
     read() {
@@ -101,8 +109,60 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    test() {
-      console.log(this.bookList);
+    addOrRemoveShelf() {
+      this.inBookShelf = !this.inBookShelf;
+
+      if (this.shelfBooklist) {
+        let addRemove = this.shelfBooklist.some((s) => {
+          return s.fileName == this.fileName;
+        });
+        console.log(addRemove);
+        if (addRemove) {
+          //移除书架
+          let newShelfBooklist = this.shelfBooklist.filter((s) => {
+            return s.fileName != this.fileName;
+          });
+          //重新存储
+          setLocalStorage("bookShelf", newShelfBooklist);
+          // this.inBookShelf = true;
+          // for (let item in this.shelfBooklist) {
+          //   if (this.shelfBooklist[item].fileName == this.fileName) {
+          //     // this.shelfBooklist[item].type = 2;
+          //     setLocalStorage("bookShelf", this.shelfBooklist);
+          //   }
+          // }
+        } else {
+          this.shelfBooklist.push({
+            id: this.shelfBooklist.length + 1,
+            fileName: this.fileName,
+            img: this.img,
+            title: this.title,
+            author: this.author,
+            type: 1,
+          });
+          setLocalStorage("bookShelf", this.shelfBooklist);
+        }
+      } else {
+        this.shelfBooklist.push({
+          id: this.shelfBooklist.length + 1,
+          fileName: this.fileName,
+          img: this.img,
+          title: this.title,
+          author: this.author,
+          type: 1,
+        });
+        setLocalStorage("bookShelf", this.shelfBooklist);
+      }
+
+      // shelfBooklist.push({
+      //   id: shelfBooklist.length + 1,
+      //   fileName: this.fileName,
+      //   img: this.img,
+      //   title: this.title,
+      //   author: this.author,
+      //   type: 1,
+      // });
+      // setLocalStorage("bookShelf", shelfBooklist);
     },
   },
 };

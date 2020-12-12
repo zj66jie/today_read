@@ -154,30 +154,87 @@ export const bookList = [
   ...LiteratureArt,
 ];
 
+let cate = bookList.filter((s) => {
+  return s.sort == "经典之作";
+});
 let cate1 = bookList.filter((s) => {
   return s.sort == "计算机科学";
+});
+let cate2 = bookList.filter((s) => {
+  return s.sort == "文学艺术";
+});
+let cate3 = bookList.filter((s) => {
+  return s.sort == "科幻";
+});
+let cate4 = bookList.filter((s) => {
+  return s.sort == "漫画";
 });
 
 // 分类
 export const categoryData = [
   {
-    img: "/images/todayRecommend/j1.jpg",
+    img1: "/images/classicWorks/j1.jpg",
+    img2: "/images/classicWorks/j2.jpg",
     sort: "经典之作",
-    num: cate1.length,
+    num: cate.length,
   },
   {
-    img: "/images/todayRecommend/j1.jpg",
+    img1: "/images/LiteratureArt/s1041849.jpg",
+    img2: "/images/LiteratureArt/juRen.jpg",
+    sort: "文学艺术",
+    num: cate2.length,
+  },
+  {
+    img1: "/images/guessLike/c1.jpg",
+    img2: "/images/guessLike/c2.jpeg",
     sort: "计算机科学",
     num: cate1.length,
   },
   {
-    img: "/images/todayRecommend/j1.jpg",
-    sort: "计算机科学",
-    num: cate1.length,
+    img1: "/images/todayRecommend/j3.jpg",
+    img2: "/images/LiteratureArt/jiangShi.jpg",
+    sort: "科幻",
+    num: cate3.length,
   },
   {
-    img: "/images/todayRecommend/j1.jpg",
-    sort: "计算机科学",
-    num: cate1.length,
+    img1: "/images/todayRecommend/j1.jpg",
+    img2: "/images/todayRecommend/j2.jpg",
+    sort: "漫画",
+    num: cate4.length,
   },
 ];
+const t = {
+  id: 1,
+  fileName: "2017_Book_MobileProfessionalVoluntarismA",
+  cover:
+    "https://www.youbaobao.xyz/book/res/img/PoliticalScienceAndInternationalRelations/2017_Book_MobileProfessionalVoluntarismA.jpeg",
+  title: "Mobile Professional Voluntarism and International Development",
+  author: "Helen Louise Ackers and James Ackers-Johnson",
+  publisher: "Palgrave Macmillan US, New York",
+  bookId: "2017_Book_MobileProfessionalVoluntarismA",
+  category: 20,
+  categoryText: "PoliticalScienceAndInternationalRelations",
+  language: "en",
+  rootFile: "OEBPS/content.opf",
+  originalName: null,
+  filePath: null,
+  unzipPath: null,
+  coverPath: null,
+  createUser: null,
+  createDt: null,
+  updateDt: null,
+  updateType: "0",
+  selected: false,
+  private: false,
+  cache: false,
+  haveRead: 0,
+  opf:
+    "https://www.youbaobao.xyz/epub2/2017_Book_MobileProfessionalVoluntarismA/OEBPS/content.opf",
+  readers: [],
+  readerNum: 0,
+  rank: 0,
+  rankNum: 0,
+  rankAvg: 0,
+  type: 1,
+};
+export const shelfBooklist = [];

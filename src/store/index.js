@@ -23,6 +23,7 @@ export default new Vuex.Store({
     color: "#fff", //字体颜色
     currentBook: null, //接收EbookReader传递过来的book实例信息
     numText: 123,
+    shelfData: [], //书架书籍信息
   },
   mutations: {
     SET_FILENAME(state, fileName) {
