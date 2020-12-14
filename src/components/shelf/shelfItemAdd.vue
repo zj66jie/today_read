@@ -1,18 +1,24 @@
 <template>
   <div class="add">
     <div class="shelf-item-add">
-      <span class="icon-add icon"></span>
+      <span class="icon-add icon" @click="add"></span>
+      <p @click="add">添加图书</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "vueName",
+  name: "shelfItemAdd",
   data() {
     return {
       msg: "Welcome to your vueName",
     };
+  },
+  methods: {
+    add() {
+      this.$emit("add");
+    },
   },
 };
 </script>
@@ -39,6 +45,12 @@ export default {
       display: flex;
       justify-content: center;
       // @include center;
+    }
+    p {
+      font-size: px2rem(15);
+      display: flex;
+      justify-content: center;
+      color: #666;
     }
   }
 }

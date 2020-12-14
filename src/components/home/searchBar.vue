@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
     <div class="search-bar-title">
-      <div class="title-icon-back">
+      <div class="title-icon-back" @click="back">
         <span class="icon-back icon1"></span>
       </div>
       <div class="title-text">
@@ -31,6 +31,9 @@ export default {
       this.$router.push({
         path: "/store/shelf",
       });
+    },
+    back() {
+      this.$router.go(-1);
     },
   },
 };
