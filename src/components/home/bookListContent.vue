@@ -29,7 +29,6 @@
 
 <script>
 import { ebookHome } from "@/utils/mixin";
-import { guessLike } from "@/utils/bookData.js";
 export default {
   name: "bookListContent",
   mixins: [ebookHome],

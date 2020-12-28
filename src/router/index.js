@@ -46,9 +46,14 @@ const routes = [
         meta: { key: 4 },
       },
       {
+        path: "search",
+        component: () => import("../components/home/searchPage.vue"),
+        meta: { key: 5 },
+      },
+      {
         path: "detail",
         component: () => import("../components/home/bookDetail.vue"),
-        meta: { key: 5 },
+        meta: { key: 6 },
       },
     ],
   },

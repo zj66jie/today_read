@@ -1,14 +1,14 @@
 <template>
   <div class="search-bar">
     <div class="search-bar-title">
-      <div class="title-icon-back" @click="back">
-        <span class="icon-back icon1"></span>
+      <div class="title-icon-back" @click="shelfTo">
+        <span class="icon-shelf icon1"></span>
       </div>
       <div class="title-text">
         <span class="title-text-span icon1">书城</span>
       </div>
-      <div class="title-icon-shake" @click="shelfTo">
-        <span class="icon-shelf icon1"></span>
+      <div class="title-icon-shake" @click="search">
+        <span class="icon-search icon1"></span>
       </div>
     </div>
     <!-- <div class="search-bar-input">
@@ -32,8 +32,10 @@ export default {
         path: "/store/shelf",
       });
     },
-    back() {
-      this.$router.go(-1);
+    search() {
+      this.$router.push({
+        path: "/store/search",
+      });
     },
   },
 };

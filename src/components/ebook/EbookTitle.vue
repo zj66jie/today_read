@@ -10,7 +10,7 @@
           <span class="icon-back icon"></span>
         </div>
         <div class="right">
-          <div class="icon-wrapper">
+          <div class="icon-wrapper" @click="shelfTo">
             <span class="icon-shelf icon"></span>
           </div>
           <div class="icon-wrapper" @click="addBookmark">
@@ -22,9 +22,9 @@
               >添加成功</span
             >
           </div>
-          <div class="icon-wrapper">
+          <!-- <div class="icon-wrapper">
             <span class="icon-more icon"></span>
-          </div>
+          </div> -->
         </div>
       </div>
     </transition>
@@ -58,6 +58,11 @@ export default {
   methods: {
     backLast() {
       this.$router.go(-1);
+    },
+    shelfTo() {
+      this.$router.push({
+        path: "/store/shelf",
+      });
     },
     addBookmark() {
       this.bookmark = getBookmark(this.$store.state.fileName);
@@ -113,6 +118,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     flex: 1;
+    margin-right: px2rem(10);
     .icon-wrapper {
       @include center;
       flex: 0 0 px2rem(30);
