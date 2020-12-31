@@ -1,6 +1,8 @@
+const baseURL = "http://127.0.0.1:5500/images/";
+
 export const guessLike = [
   {
-    img: "/images/guessLike/c1.jpg",
+    img: "http://127.0.0.1:5500/images/guessLike/c1.jpg",
     author: "Hana Chockler",
     title: "Computer Aided Verification",
     desc:
@@ -9,7 +11,7 @@ export const guessLike = [
     fileName: "ComputerScience|2018_Book_ComputerAidedVerification",
   },
   {
-    img: "/images/guessLike/c2.jpeg",
+    img: "http://127.0.0.1:5500/images/guessLike/c2.jpeg",
     author: "Julianne Nyhan and Andrew Flinn",
     title: "Computation and the Humanities",
     desc:
@@ -18,7 +20,7 @@ export const guessLike = [
     fileName: "ComputerScience|2016_Book_ComputationAndTheHumanities",
   },
   {
-    img: "/images/guessLike/c3.jpg",
+    img: "http://127.0.0.1:5500/images/guessLike/c3.jpg",
     author: "Olav Lysne",
     title: "The Huawei and Snowden Questions",
     desc:
@@ -27,7 +29,7 @@ export const guessLike = [
     fileName: "ComputerScience|2018_Book_TheHuaweiAndSnowdenQuestions",
   },
   // {
-  //   img: "/images/guessLike/c3.jpg",
+  //   img: "http://127.0.0.1:5500/images/guessLike/c3.jpg",
   //   author: "Olav Lysne",
   //   title: "The Huawei and Snowden Questions",
   //   desc:
@@ -40,7 +42,10 @@ export const guessLike = [
 //文学艺术
 export const LiteratureArt = [
   {
-    img: "/images/LiteratureArt/20岁.jpg",
+    // http://127.0.0.1:5500http://127.0.0.1:5500/images/
+    img: "http://127.0.0.1:5500/images/LiteratureArt/20岁.jpg",
+    // img: `${baseURL}LiteratureArt/20岁.jpg`,
+    // img: baseURL + "LiteratureArt/20岁.jpg",
     author: "林夏萨摩",
     title: "伟大的孤独",
     desc:
@@ -49,7 +54,7 @@ export const LiteratureArt = [
     fileName: "_wenXue|erShi",
   },
   {
-    img: "/images/LiteratureArt/juRen.jpg",
+    img: "http://127.0.0.1:5500/images/LiteratureArt/juRen.jpg",
     author: "[英] 肯·福莱特",
     title: "巨人的陨落",
     desc:
@@ -58,7 +63,7 @@ export const LiteratureArt = [
     fileName: "_wenXue|巨人的陨落",
   },
   {
-    img: "/images/LiteratureArt/jiangShi.jpg",
+    img: "http://127.0.0.1:5500/images/LiteratureArt/jiangShi.jpg",
     author: "[美] 马克斯·布鲁克斯",
     title: "僵尸生存指南",
     desc:
@@ -67,7 +72,7 @@ export const LiteratureArt = [
     fileName: "_keHuan|僵尸生存指南",
   },
   {
-    img: "/images/LiteratureArt/s1041849.jpg",
+    img: "http://127.0.0.1:5500/images/LiteratureArt/s1041849.jpg",
     author: "李学勤",
     title: "细说中国历史",
     desc:
@@ -80,7 +85,7 @@ export const LiteratureArt = [
 // 经典之作
 export const classicWorks = [
   {
-    img: "/images/classicWorks/j1.jpg",
+    img: "http://127.0.0.1:5500/images/classicWorks/j1.jpg",
     author: "罗贯中",
     title: "三国演义",
     desc:
@@ -89,7 +94,7 @@ export const classicWorks = [
     fileName: "classicWorks|sanGuo",
   },
   {
-    img: "/images/classicWorks/j2.jpg",
+    img: "http://127.0.0.1:5500/images/classicWorks/j2.jpg",
     author: "佚名",
     title: "山海经",
     desc:
@@ -98,7 +103,7 @@ export const classicWorks = [
     fileName: "classicWorks|shanHai",
   },
   {
-    img: "/images/classicWorks/j3.jpg",
+    img: "http://127.0.0.1:5500/images/classicWorks/j3.jpg",
     author: "陈仲琳",
     title: "封神演义",
     desc:
@@ -107,7 +112,7 @@ export const classicWorks = [
     fileName: "classicWorks|fengShen",
   },
   {
-    img: "/images/classicWorks/j4.jpg",
+    img: "http://127.0.0.1:5500/images/classicWorks/j4.jpg",
     author: "曹雪芹",
     title: "红楼梦",
     desc:
@@ -119,7 +124,7 @@ export const classicWorks = [
 // 今日推荐
 export const todayRecommend = [
   {
-    img: "/images/todayRecommend/j1.jpg",
+    img: "http://127.0.0.1:5500/images/todayRecommend/j1.jpg",
     author: "[法] 圣-埃克苏佩里",
     title: "小王子",
     desc:
@@ -128,7 +133,7 @@ export const todayRecommend = [
     fileName: "_manHua|xiaoWangZi",
   },
   {
-    img: "/images/todayRecommend/j2.jpg",
+    img: "http://127.0.0.1:5500/images/todayRecommend/j2.jpg",
     author: "[日] 井上雄彦",
     title: "灌篮高手",
     desc:
@@ -137,7 +142,7 @@ export const todayRecommend = [
     fileName: "_manHua|guanLan",
   },
   {
-    img: "/images/todayRecommend/j3.jpg",
+    img: "http://127.0.0.1:5500/images/todayRecommend/j3.jpg",
     author: "刘慈欣",
     title: "三体",
     desc:
@@ -153,7 +158,7 @@ export const bookList = [
   ...todayRecommend,
   ...LiteratureArt,
 ];
-
+//分类
 let cate = bookList.filter((s) => {
   return s.sort == "经典之作";
 });
@@ -173,68 +178,35 @@ let cate4 = bookList.filter((s) => {
 // 分类
 export const categoryData = [
   {
-    img1: "/images/classicWorks/j1.jpg",
-    img2: "/images/classicWorks/j2.jpg",
+    img1: "http://127.0.0.1:5500/images/classicWorks/j1.jpg",
+    img2: "http://127.0.0.1:5500/images/classicWorks/j2.jpg",
     sort: "经典之作",
     num: cate.length,
   },
   {
-    img1: "/images/LiteratureArt/s1041849.jpg",
-    img2: "/images/LiteratureArt/juRen.jpg",
+    img1: "http://127.0.0.1:5500/images/LiteratureArt/s1041849.jpg",
+    img2: "http://127.0.0.1:5500/images/LiteratureArt/juRen.jpg",
     sort: "文学艺术",
     num: cate2.length,
   },
   {
-    img1: "/images/guessLike/c1.jpg",
-    img2: "/images/guessLike/c2.jpeg",
+    img1: "http://127.0.0.1:5500/images/guessLike/c1.jpg",
+    img2: "http://127.0.0.1:5500/images/guessLike/c2.jpeg",
     sort: "计算机科学",
     num: cate1.length,
   },
   {
-    img1: "/images/todayRecommend/j3.jpg",
-    img2: "/images/LiteratureArt/jiangShi.jpg",
+    img1: "http://127.0.0.1:5500/images/todayRecommend/j3.jpg",
+    img2: "http://127.0.0.1:5500/images/LiteratureArt/jiangShi.jpg",
     sort: "科幻",
     num: cate3.length,
   },
   {
-    img1: "/images/todayRecommend/j1.jpg",
-    img2: "/images/todayRecommend/j2.jpg",
+    img1: "http://127.0.0.1:5500/images/todayRecommend/j1.jpg",
+    img2: "http://127.0.0.1:5500/images/todayRecommend/j2.jpg",
     sort: "漫画",
     num: cate4.length,
   },
 ];
-const t = {
-  id: 1,
-  fileName: "2017_Book_MobileProfessionalVoluntarismA",
-  cover:
-    "https://www.youbaobao.xyz/book/res/img/PoliticalScienceAndInternationalRelations/2017_Book_MobileProfessionalVoluntarismA.jpeg",
-  title: "Mobile Professional Voluntarism and International Development",
-  author: "Helen Louise Ackers and James Ackers-Johnson",
-  publisher: "Palgrave Macmillan US, New York",
-  bookId: "2017_Book_MobileProfessionalVoluntarismA",
-  category: 20,
-  categoryText: "PoliticalScienceAndInternationalRelations",
-  language: "en",
-  rootFile: "OEBPS/content.opf",
-  originalName: null,
-  filePath: null,
-  unzipPath: null,
-  coverPath: null,
-  createUser: null,
-  createDt: null,
-  updateDt: null,
-  updateType: "0",
-  selected: false,
-  private: false,
-  cache: false,
-  haveRead: 0,
-  opf:
-    "https://www.youbaobao.xyz/epub2/2017_Book_MobileProfessionalVoluntarismA/OEBPS/content.opf",
-  readers: [],
-  readerNum: 0,
-  rank: 0,
-  rankNum: 0,
-  rankAvg: 0,
-  type: 1,
-};
+
 export const shelfBooklist = [];

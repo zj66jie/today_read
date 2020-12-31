@@ -69,6 +69,7 @@ export default {
       if (!this.bookmark) {
         this.bookmark = [];
       }
+      //获取书籍的页面位置信息，存储
       const currentLocation = this.$store.state.currentBook.rendition.currentLocation();
       const cfibase = currentLocation.start.cfi.replace(/!.*/, "");
       const cfistart = currentLocation.start.cfi

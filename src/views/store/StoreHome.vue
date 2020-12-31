@@ -13,7 +13,7 @@
       <classic-works></classic-works>
       <category></category>
     </div>
-
+    <img src="/images/LiteratureArt/20岁.jpg" alt="" />
     <!-- <router-view></router-view> -->
   </div>
 </template>

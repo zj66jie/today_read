@@ -71,6 +71,16 @@ export default {
       ],
     };
   },
+  mounted() {
+    //获取路由传入参数，并处理传入数据将|转换为/
+    const fileName = this.$route.params.fileName.split("|").join("/");
+    this.fontSize = this.$store.state.fontSize;
+    this.$store.dispatch("setFileName", fileName).then(() => {
+      this.initEpub();
+    });
+    console.log(fileName);
+    //console.log(`${BASE_URl}.epub`);
+  },
   methods: {
     nextPage() {
       if (this.rendition) {
@@ -266,16 +276,16 @@ export default {
       );
     },
   },
-  mounted() {
-    //获取路由传入参数，并处理传入数据将|转换为/
-    const fileName = this.$route.params.fileName.split("|").join("/");
-    this.fontSize = this.$store.state.fontSize;
-    this.$store.dispatch("setFileName", fileName).then(() => {
-      this.initEpub();
-    });
-    console.log(fileName);
-    //console.log(`${BASE_URl}.epub`);
-  },
+  // mounted() {
+  //   //获取路由传入参数，并处理传入数据将|转换为/
+  //   const fileName = this.$route.params.fileName.split("|").join("/");
+  //   this.fontSize = this.$store.state.fontSize;
+  //   this.$store.dispatch("setFileName", fileName).then(() => {
+  //     this.initEpub();
+  //   });
+  //   console.log(fileName);
+  //   //console.log(`${BASE_URl}.epub`);
+  // },
 };
 </script>
 
