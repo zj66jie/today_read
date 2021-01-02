@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
 <style lang="scss">
 #app {
   width: 100%;
