@@ -112,7 +112,14 @@ export default {
     addOrRemoveShelf() {
       this.inBookShelf = !this.inBookShelf;
 
+      if (getLocalStorage("bookShelf")) {
+        this.shelfBooklist = getLocalStorage("bookShelf");
+      } else {
+        setLocalStorage("bookShelf", this.shelfBooklist);
+      }
+
       if (this.shelfBooklist) {
+        // console.log("book1");
         let addRemove = this.shelfBooklist.some((s) => {
           return s.fileName == this.fileName;
         });
@@ -124,13 +131,6 @@ export default {
           });
           //重新存储
           setLocalStorage("bookShelf", newShelfBooklist);
-          // this.inBookShelf = true;
-          // for (let item in this.shelfBooklist) {
-          //   if (this.shelfBooklist[item].fileName == this.fileName) {
-          //     // this.shelfBooklist[item].type = 2;
-          //     setLocalStorage("bookShelf", this.shelfBooklist);
-          //   }
-          // }
         } else {
           this.shelfBooklist.push({
             id: this.shelfBooklist.length + 1,

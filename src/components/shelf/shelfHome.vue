@@ -1,6 +1,9 @@
 <template>
   <div class="shelf">
     <div class="shelf-title">
+      <div class="left" v-if="select" @click="back">
+        <span class="icon icon-back"></span>
+      </div>
       <div class="center" v-if="select"><span>书架</span></div>
       <div class="center" v-else>选择</div>
       <div class="right" @click="selectDelect">
@@ -78,6 +81,9 @@ export default {
   },
   methods: {
     // 编辑
+    back() {
+      this.$router.go(-1);
+    },
     selectDelect() {
       this.delectWrapper = !this.delectWrapper;
       this.select = !this.select;
@@ -149,15 +155,26 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/styles/global.scss";
 .shelf {
-  width: 100%;
+  width: 100vw;
   // margin-bottom: px2rem(100);
   .shelf-title {
-    width: 100%;
+    width: 100vw;
     font-size: px2rem(17);
     font-weight: bold;
     height: px2rem(42);
     box-shadow: 0 5px 5px rgba(66, 65, 65, 0.363);
     display: flex;
+    .left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: px2rem(42);
+      font-size: px2rem(14);
+      color: #666;
+      width: px2rem(30);
+      font-weight: 400;
+      @include right;
+    }
     .center {
       width: 100%;
       color: #666;
@@ -200,6 +217,7 @@ export default {
 
           img {
             width: 100%;
+            height: 32vw;
           }
         }
 
