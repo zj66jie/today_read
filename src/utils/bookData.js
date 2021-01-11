@@ -120,6 +120,15 @@ export const classicWorks = [
     sort: "经典之作",
     fileName: "classicWorks|hongLou",
   },
+  {
+    img: baseURL + "/images/LiteratureArt/jiangShi.jpg",
+    author: "[美] 马克斯·布鲁克斯",
+    title: "僵尸生存指南",
+    desc:
+      "《僵尸生存指南》是一本教人们如何在僵尸横行的世界中求生存的完全指南，从选择武器到制定逃生计划，从家中防御到主动出击，从储存食物到选择交通工具，作者进行了事无巨细的指导。《僵尸生存指南》所有的知识和求生技能都是通过艰难的探索和经验来积累的，所有的研究成果均是建立在诸如历史记录、现场勘查、实验室实验和目击者记录等内容的基础上。此书将大大增加人们在遭遇僵尸时的生存几率。作者马克斯·布鲁克斯还列举了人类历史上发生过的无数次僵尸灾难，证明这一切都有可能发生！",
+    sort: "科幻",
+    fileName: "_keHuan|僵尸生存指南",
+  },
 ];
 // 今日推荐
 export const todayRecommend = [

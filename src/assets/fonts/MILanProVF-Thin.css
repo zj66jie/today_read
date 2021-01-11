@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "LanTing";
+  src: url("MILanProVF-Thin.woff2") format("woff2"),
+    url("MILanProVF-Thin.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}

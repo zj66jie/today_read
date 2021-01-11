@@ -51,7 +51,7 @@ export default {
         { font: "HanYiKai" },
         { font: "Cabin" },
         { font: "Days One" },
-        { font: "Montserrat" },
+        { font: "LanTing" },
         { font: "Tangerine" },
       ],
     };

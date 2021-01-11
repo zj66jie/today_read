@@ -8,7 +8,7 @@
     <div class="guess-you-like-list">
       <div
         class="guess-you-like-item"
-        v-for="(item, index) in showData"
+        v-for="(item, index) in showData.slice(0, 4)"
         :key="index"
         @click="showBookDetail(item)"
       >

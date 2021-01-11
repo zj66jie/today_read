@@ -17,14 +17,18 @@
 }
 
 // slideTitle-down动画
+// v-enter,v-leave-to代表开始以及结束时的状态
 .slideTitle-down-enter,
 .slideTitle-down-leave-to {
   transform: translate3d(0, -100%, 0);
 }
+// enter-to代表enter进入后状态
+// leave代表leave-to前状态
 .slideTitle-down-enter-to,
 .slideTitle-down-leave {
   transform: translate3d(0, 0, 0);
 }
+// v-enter-active,v-leave-active代表动画的过程。
 .slideTitle-down-enter-active,
 .slideTitle-down-leave-active {
   transition: all 0.15s linear;

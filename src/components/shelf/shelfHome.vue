@@ -89,7 +89,7 @@ export default {
       this.select = !this.select;
       this.isSelected = [];
     },
-    // 删除书架
+    // 进入图书或删除点击
     onBookClick(subItem, subIndex) {
       // console.log(subItem instanceof Array);
       // console.log(typeof subItem);

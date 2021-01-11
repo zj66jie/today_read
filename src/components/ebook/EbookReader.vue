@@ -231,9 +231,10 @@ export default {
       //字体文件引入
       this.rendition.hooks.content.register((contents) => {
         Promise.all([
-          contents.addStylesheet("http://127.0.0.1:5500/fonts/daysOne.css"),
-          contents.addStylesheet("http://127.0.0.1:5500/fonts/cabin.css"),
-          contents.addStylesheet("http://127.0.0.1:5500/fonts/HanYiKai.css"),
+          contents.addStylesheet(`${this.BASE_URl}fonts/daysOne.css`),
+          contents.addStylesheet(`${this.BASE_URl}fonts/cabin.css`),
+          contents.addStylesheet(`${this.BASE_URl}fonts/HanYiKai.css`),
+          contents.addStylesheet(`${this.BASE_URl}fonts/MILanProVF-Thin.css`),
         ]).then(() => {});
       });
 

@@ -68,10 +68,10 @@ export function setBookObject(fileName, key, value) {
     // console.log(getLocalStorage(`${fileName}-info`));
     book = getLocalStorage(`${fileName}-info`);
   }
-  book[key] = value;
+  book[key] = value; //book[key]=book.key
   setLocalStorage(`${fileName}-info`, book);
 }
-//得到字体
+//得到存储
 export function getBookObject(fileName, key) {
   if (getLocalStorage(`${fileName}-info`)) {
     return getLocalStorage(`${fileName}-info`)[key];
