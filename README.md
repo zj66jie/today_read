@@ -16,3 +16,4 @@ npm install
 ### 路径
 - utils>bookData.js 中需要设置书籍信息img的服务器地址
 - components>ebook>EbookReader 设置书籍的服务器网络地址
+- 2020.1.6完结项目
